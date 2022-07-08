@@ -6,9 +6,24 @@
 docker-compose up -d
 ```
 
+`kafka-topics.sh --bootstrap-server localhost:9092 --describe  --topic {topic_name}`
+
+https://st1.zoom.us/web_client/4qu8baa/html/externalLinkPage.html?ref=http://localhost:8082/topics/%257BtopicName%257D
+
+`Kafka-topics.sh —bootstrap-server localhost:9092 —create —topic this_class_rocks --config unclean.leader.election.enable=true --config min.insync.replicas=1`
+
 1- Modify the docker-compose file to have the following deployment:
 
 - 5 brokers, and configure the racks such that they group 3/1/1
+
+    * `docker-compose up --scale broker-1=3`
+    * NOTE: This doesn't work with named services via docker-compose. :(
+
+    * Add some env var's to your container, e.g.:
+        - KAFKA_REPLICATION_FACTOR: 3
+        # https://github.com/rawmind0/alpine-kafka/blob/master/README.md
+        # https://kafka.apache.org/documentation/
+        # https://kafka.apache.org/documentation/#brokerconfigs_offsets.topic.replication.factor
 
 Ensure that the brokers have a reliable configuration at the broker level.
 
@@ -16,6 +31,19 @@ Ensure that the brokers have a reliable configuration at the broker level.
 
 - One to have the most reliable configuration
 - Another one to represent a less reliable configuration
+
+    *Unix*
+
+    ```
+    ./bin/kafka-topics.sh --create --bootstrap-server localhost:9092 \
+    --replication-factor 2 --partitions 3 --topic latency
+
+    ./bin/kafka-topics.sh --create --bootstrap-server localhost:9092 \
+    --replication-factor 2 --partitions 3 --topic throughput
+
+    ./bin/kafka-topics.sh --create --bootstrap-server localhost:9092 \
+    --replication-factor 2 --partitions 3 --topic reliability
+    ```
 
 This is a traditional setup where in general you may default to being reliable, but for some topics you can choose to prioritize performance over durability
 
@@ -26,6 +54,10 @@ This is a traditional setup where in general you may default to being reliable, 
 Although it is difficult to force the situation of putting down a broker **just** before the followers read the message, we will try to simulate some scenarios.
 
 5- Set the producer to send messages constantly (logging set to DEBUG) and disconnect the leader for the non reliable topic by running `docker stop` on its container. Check the logs, what happened? What happened while the election was happening?
+
+    * logging set to DEBUG
+      * I don't see a DEBUG option in the ruby gem when specifying the logger
+        * https://github.com/zendesk/ruby-kafka/blob/master/lib/kafka/client.rb#L83
 
 6- While the producer keeps running, stop another broker; wait for some time with sending messages, and bring the original leader up with `docker start`. What happened with the messages that had a divergence of offsets?
 
