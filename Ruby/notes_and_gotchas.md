@@ -1,4 +1,10 @@
+
 ## Gotcha's
+
+Book: "Kafka: The Definitive Guide"
+  * https://st1.zoom.us/web_client/4qu8baa/html/externalLinkPage.html?ref=https://www.oreilly.com/library/view/kafka-the-definitive/9781491936153/
+  * https://st1.zoom.us/web_client/4qu8baa/html/externalLinkPage.html?ref=https://www.oreilly.com/library/view/kafka-the-definitive/9781492043072/
+  * 3rd edition in the works
 
 ### Error starting userland proxy: listen tcp4 0.0.0.0:2181: bind: address already in use
 
@@ -23,3 +29,24 @@
     $ sudo kill 1568
     
     ```
+  
+### Kafka Image env var's
+
+See:
+  * https://github.com/rawmind0/alpine-kafka/blob/master/README.md
+  * https://kafka.apache.org/documentation/
+  * https://kafka.apache.org/documentation/#brokerconfigs_offsets.topic.replication.factor
+  * https://docs.confluent.io/platform/current/installation/configuration/broker-configs.html
+
+### watermark
+
+Comparison of offsets between leader and follower.
+
+If follower with highest watermark gets elected to primary.
+
+## Running examples
+
+## Sending Objects instead of just String
+
+subjects == schema
+
