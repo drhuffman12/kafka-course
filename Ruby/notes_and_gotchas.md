@@ -1,4 +1,18 @@
 
+## Adding Kafka to your path (reminder)
+
+1. Install (download and unzip) kafka_2.12-2.4.1`
+2. Add to the 'bin' folder to your path
+
+    ```
+    ################################################################
+    # Kafka
+    KAFKA_HOME=/path/to/kafka_2.12-2.4.1
+    PATH=$PATH:$KAFKA_HOME/bin
+    export KAFKA_HOME
+    export PATH
+    ```
+
 ## Gotcha's
 
 Book: "Kafka: The Definitive Guide"
