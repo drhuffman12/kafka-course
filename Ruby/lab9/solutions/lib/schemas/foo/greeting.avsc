@@ -1,0 +1,12 @@
+{
+  "name": "greeting",
+  "type": "record",
+  "version": 1,
+  "namespace": "foo",
+  "fields": [
+    {
+      "name": "title",
+      "type": "string"
+    }
+  ]
+}

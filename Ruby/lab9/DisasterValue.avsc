@@ -1,0 +1,10 @@
+{
+  "fields": [
+    {
+      "name": "address"
+    }
+  ],
+  "name": "DisasterValue",
+  "namespace": "com.honolulu.model",
+  "type": "record"
+}
