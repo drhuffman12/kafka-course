@@ -16,8 +16,8 @@
 ## Gotcha's
 
 Book: "Kafka: The Definitive Guide"
-  * https://st1.zoom.us/web_client/4qu8baa/html/externalLinkPage.html?ref=https://www.oreilly.com/library/view/kafka-the-definitive/9781491936153/
-  * https://st1.zoom.us/web_client/4qu8baa/html/externalLinkPage.html?ref=https://www.oreilly.com/library/view/kafka-the-definitive/9781492043072/
+  * https://www.oreilly.com/library/view/kafka-the-definitive/9781491936153/
+  * https://www.oreilly.com/library/view/kafka-the-definitive/9781492043072/
   * 3rd edition in the works
 
 ### Error starting userland proxy: listen tcp4 0.0.0.0:2181: bind: address already in use
@@ -62,5 +62,13 @@ If follower with highest watermark gets elected to primary.
 
 ## Sending Objects instead of just String
 
+---
+
 subjects == schema
 
+
+https://www.surveymonkey.com/r/LPHJXVV
+
+https://modernweb.com/what-every-javascript-developer-should-know-about-floating-points/
+
+See also: https://app.pluralsight.com/library/courses/apache-kafka-getting-started/table-of-contents
