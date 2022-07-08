@@ -9,7 +9,10 @@ module KafkaExample
   class Error < StandardError; end
 end
 
-example = KafkaExample::Lab4Performance.new
+example = KafkaExample::Lab4ExampleStorms.new
 example.run
-example.consume
+# example.consume
+# example.consume_v2
+# example.consume_loop
+puts "consumed!"
 example.log

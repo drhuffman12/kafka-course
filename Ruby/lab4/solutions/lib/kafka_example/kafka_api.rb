@@ -2,7 +2,7 @@ require "kafka"
 
 module KafkaExample
   class KafkaApi
-    CLIENT_ID_DEFAULT = 'lab3-producer'
+    CLIENT_ID_DEFAULT = 'lab4-producer'
     BROKERS_DEFAULT = ['localhost:9092', 'localhost:9093']
     TOPIC_DEFAULT = 'my_orders2'
 
